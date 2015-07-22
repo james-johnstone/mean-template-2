@@ -1,0 +1,6 @@
+﻿.panel.panel-primary
+	.panel-heading.text-center Comments
+	.panel-body 
+		.row(ng-repeat="comment in comments | orderBy:'submitted':false  | filter:{removed:false}")
+			.col-md-4 {{comment.user}} 
+			.col-md-8 {{comment.comment}}

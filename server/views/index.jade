@@ -1,0 +1,30 @@
+extend ../includes/layout
+
+block main-content
+	.navbar.navbar-fixed.top
+		.container
+			.navbar.navbar-inverse(ng-controller="authController")
+				ul.nav.navbar-nav
+					li.dropdown
+						a.dropdown-toggle(data-toggle="dropdown" href="#") Home 
+							b.caret
+						ul.dropdown-menu
+							li
+								a(href="/") Somewhere
+					li.dropdown(ng-show="identity.currentUser.isAdmin()")
+						a.dropdown-toggle(data-toggle="dropdown" href="#") Admin 
+							b.caret
+						ul.dropdown-menu
+							li
+								a(href="/admin/users") Users						
+							li
+								a(href="/admin/words") Words						
+							li
+								a(href="/admin/languages") Root Languages
+				div(ng-include="'/partials/auth/navbar-login'")
+
+	section.content
+		div(ng-view)
+
+	footer.container.text-center.navbar.navbar-fixed-bottom
+		p &copy; 2014 Eto

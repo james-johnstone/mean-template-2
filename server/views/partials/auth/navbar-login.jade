@@ -1,0 +1,21 @@
+﻿.navbar-right
+	form.navbar-form(ng-hide="identity.isAuthenticated()")
+		.form-group
+			input.form-control(placeholder="Email", ng-model="username")
+		.form-group
+			input.form-control(type="password", placeholder="Password", ng-model="password")
+		button.btn.btn-primary(ng-click="login(username,password)") Login
+		ul.nav.navbar-nav.pull-right
+			li
+				a(href="/signup") Sign Up
+			
+
+	ul.nav.navbar-nav.right(ng-show="identity.isAuthenticated()")
+					li.dropdown
+						a.dropdown-toggle(data-toggle="dropdown" href="#") {{identity.currentUser.userName || identity.currentUser.email }}
+							b.caret
+						ul.dropdown-menu
+							li
+								a(href="/profile") Profile
+							li
+								a(href="", ng-click="signout()") Sign Out

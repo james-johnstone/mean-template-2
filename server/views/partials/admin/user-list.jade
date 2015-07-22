@@ -1,0 +1,25 @@
+﻿.container
+	h2 Users
+	.pull-right
+		form.form-inline
+			.form-group
+				input.form-control(ng-model="searchText", placeholder="Filter")
+			.form-group.margin-left
+				select.form-control(ng-model="sortOrder", ng-options="item.value as item.text for item in sortOptions")
+	table.table.table-hover.table-striped
+		thead
+			tr
+				th #
+				th First Name
+				th Last Name
+				th User Name
+				th Email
+				th Edit
+		tr(ng-repeat="user in users | filter:searchText | orderBy:sortOrder")
+			td {{user._id}}
+			td {{user.firstName}}
+			td {{user.lastName}}
+			td {{user.userName}}
+			td {{user.email}}
+			td
+				button.btn.btn-info(ng-click="editUser(user)")

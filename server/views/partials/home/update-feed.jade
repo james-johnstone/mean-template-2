@@ -1,0 +1,6 @@
+﻿.panel.panel-primary
+	.panel-heading.text-center Updates
+	.panel-body 
+		.row(ng-repeat="update in updates | orderBy:'published':false  | filter:{released:true}")
+			.col-md-3 {{update.published | date:'yyyy-MM-dd'}}
+			.col-md-9 {{update.update}}

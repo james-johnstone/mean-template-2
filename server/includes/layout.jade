@@ -1,0 +1,13 @@
+doctype html
+
+html
+	head
+		title Eto
+		link(href="/flavicon.ico?v2", rel="shortcur icon", type="image/x-icon")
+		link(rel="stylesheet", href="/css/bootstrap.css")
+		link(rel="stylesheet", href="/dependancies/toastr/toastr.css")
+		link(rel="stylesheet", href="/css/app.css")
+	body(ng-app='app')
+		include currentUser
+		block main-content
+	include scripts
